@@ -191,10 +191,9 @@ interface PlayerCardProps {
   status: GameStatus;
   currentPlayer: Player;
   pieceStyle: PieceStyle;
-  levelLabel: string;
 }
 
-function PlayerCard({ who, player, status, currentPlayer, pieceStyle, levelLabel }: PlayerCardProps) {
+function PlayerCard({ who, player, status, currentPlayer, pieceStyle }: PlayerCardProps) {
   const active = status === 'playing' && currentPlayer === player;
   return (
     <div
@@ -209,7 +208,6 @@ function PlayerCard({ who, player, status, currentPlayer, pieceStyle, levelLabel
         <div className="truncate text-sm font-semibold text-white">{who === 'human' ? 'Bạn' : 'Máy (AI)'}</div>
         <div className="truncate text-xs text-slate-400">
           Quân {playerName(player)} · {player === 1 ? 'đi trước' : 'đi sau'}
-          {who === 'ai' && ` · ${levelLabel}`}
         </div>
       </div>
     </div>
