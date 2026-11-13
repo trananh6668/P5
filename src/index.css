@@ -1,10 +1,23 @@
 @import 'tailwindcss';
 
 @layer base {
+  :root,
   html {
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     background: #05070d;
+    /* 1. Báo cho trình duyệt trang web đã là giao diện tối gốc, KHÔNG tự ý bật Auto Dark Mode đảo màu */
+    color-scheme: dark;
+    forced-color-adjust: none;
+  }
+
+  /* 2. Bảo vệ toàn bộ SVG và các dải màu gradient không bị trình duyệt hay extension can thiệp */
+  svg,
+  svg *,
+  stop,
+  radialGradient,
+  linearGradient {
+    forced-color-adjust: none !important;
   }
 }
 
